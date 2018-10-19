@@ -6,17 +6,12 @@ pipeline {
   stages {
     stage("Build") {
       steps {
-        echo "building..."
+        sh "gcc main.c"
       }
     }
     stage("Test") {
       steps {
-        echo "testing..."
-      }
-    }
-    stage("Package") {
-      steps {
-        echo "packaging..."
+        sh "./a | grep -q 'hello world'"
       }
     }
   }
