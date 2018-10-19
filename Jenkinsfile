@@ -6,17 +6,12 @@ pipeline {
   stages {
     stage("Build") {
       steps {
-        echo "building..."
+        sh "python -m py_compile main.py"
       }
     }
     stage("Test") {
       steps {
-        echo "testing..."
-      }
-    }
-    stage("Package") {
-      steps {
-        echo "packaging..."
+        sh "python -m doctest main.py"
       }
     }
   }
