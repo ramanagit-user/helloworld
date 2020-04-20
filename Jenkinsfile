@@ -1,3 +1,14 @@
-node('master') {
-  echo "Hello world! I am node ${env.NODE_NAME}"
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo "Hello World"
+                /*sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''*/
+            }
+        }
+    }
 }
